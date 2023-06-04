@@ -1,0 +1,11 @@
+{
+  "name": "taskme-backend",
+  "version": "1.0.0",
+  "description": "A backend for a task manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Verdejo",
+  "license": "ISC"
+}
