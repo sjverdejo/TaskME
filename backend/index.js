@@ -1,14 +1,7 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const config = require('./utils/config')
+const app = require('./app')
 
-app.use(express.json())
-
-app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
-})
-
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+app.listen(config.PORT, () => {
+    console.log(`App running on port ${config.PORT}.`)
 })
 
