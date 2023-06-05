@@ -12,5 +12,5 @@ app.get('/', (request, response) => {
 app.get('/tasks', tasksRouter.getTasks)
 app.get('/tasks/:id', tasksRouter.getTaskById)
 app.post('/tasks', tasksRouter.createTask)
-
+app.put('/tasks/:id', tasksRouter.updateTask)
 module.exports = app

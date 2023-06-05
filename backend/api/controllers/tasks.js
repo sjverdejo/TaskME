@@ -26,7 +26,7 @@ const getTaskById = (req, res) => {
 const createTask = (req, res) => {
     const { name, description, datecreated, datedue } = req.body
 
-    db.query('INSERT INTO tasks (name, description, datecreated, datedue) VALUES ($1, $2, $3, $4 RETURNING *', 
+    db.query('INSERT INTO tasks (name, description, datecreated, datedue) VALUES ($1, $2, $3, $4) RETURNING *', 
     [name, description, datecreated, datedue], (error, results) => {
         if (error) {
             throw error
@@ -36,8 +36,27 @@ const createTask = (req, res) => {
     })
 }
 
+//PUT methods
+const updateTask = (req, res) => {
+    const id = parseInt(req.params.id)
+    const { name, description, datecreated, datedue } = req.body
+
+    db.query(
+        'UPDATE tasks SET name = $1, description = $2, datecreated = $3, datedue = $4 WHERE id = $5',
+        [name, description, datecreated, datedue, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+
+            res.status(200).send(`User modified with ID: ${id}`)
+        }
+    )
+}
+
 module.exports = { 
     getTasks,
     getTaskById, 
     createTask,
+    updateTask
 }
