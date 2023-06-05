@@ -24,10 +24,20 @@ const getTaskById = (req, res) => {
 
 //POST methods
 const createTask = (req, res) => {
-    
+    const { name, description, datecreated, datedue } = req.body
+
+    db.query('INSERT INTO tasks (name, description, datecreated, datedue) VALUES ($1, $2, $3, $4 RETURNING *', 
+    [name, description, datecreated, datedue], (error, results) => {
+        if (error) {
+            throw error
+        }
+
+        res.status(201).send(`User added with ID: ${results.rows[0].id}`)
+    })
 }
 
 module.exports = { 
     getTasks,
     getTaskById, 
+    createTask,
 }
