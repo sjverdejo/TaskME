@@ -32,7 +32,7 @@ const createTask = (req, res) => {
             throw error
         }
 
-        res.status(201).send(`User added with ID: ${results.rows[0].id}`)
+        res.status(201).send(`Task added with ID: ${results.rows[0].id}`)
     })
 }
 
@@ -49,14 +49,27 @@ const updateTask = (req, res) => {
                 throw error
             }
 
-            res.status(200).send(`User modified with ID: ${id}`)
+            res.status(200).send(`Task modified with ID: ${id}`)
         }
     )
+}
+
+const deleteTask = (req, res) => {
+    const id = parseInt(req.params.id)
+
+    db.query('DELETE FROM tasks WHERE id = $1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+
+        res.status(200).send(`Task deleted with ID: ${id}`)
+    })
 }
 
 module.exports = { 
     getTasks,
     getTaskById, 
     createTask,
-    updateTask
+    updateTask,
+    deleteTask,
 }
