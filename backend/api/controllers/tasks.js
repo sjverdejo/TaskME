@@ -54,6 +54,7 @@ const updateTask = (req, res) => {
     )
 }
 
+//DELETE methods
 const deleteTask = (req, res) => {
     const id = parseInt(req.params.id)
 

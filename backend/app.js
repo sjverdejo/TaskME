@@ -5,10 +5,6 @@ const tasksRouter = require('./api/controllers/tasks')
 
 app.use(express.json())
 
-app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
-})
-
 app.get('/tasks', tasksRouter.getTasks)
 app.get('/tasks/:id', tasksRouter.getTaskById)
 app.post('/tasks', tasksRouter.createTask)
