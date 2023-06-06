@@ -1,9 +1,10 @@
 
-function Task({name, desc}) {
+function Task({task}) {
     return (
         <>
-            <h1>{name}</h1>
-            <p>{desc}</p>
+            <p>
+                {task.name}
+            </p>
         </>
     )
 }

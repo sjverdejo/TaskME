@@ -1,8 +1,9 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
-const db = require('./api/db/pg-sql')
 const tasksRouter = require('./api/controllers/tasks')
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/tasks', tasksRouter.getTasks)

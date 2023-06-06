@@ -2,16 +2,7 @@
 function Header() {
     return (
         <div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href='#'>Home</a>
-                    </li>
-                    <li>
-                        <a href='#'>Me</a>
-                    </li>
-                </ul>
-            </nav>
+            <h1>TaskME</h1>
         </div>
     )
 }
