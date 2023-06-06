@@ -1,0 +1,11 @@
+.Task-Container {
+    border: 1px solid black;
+    border-radius: 9px;
+    margin: 2vh;
+    padding: 1vh;
+}
+
+.Task-Container>h2 {
+    margin: 0px;
+    text-align: center;
+}

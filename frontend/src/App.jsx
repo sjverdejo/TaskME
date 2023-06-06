@@ -16,18 +16,18 @@ function App() {
       })
   }, [])
 
-  console.log(tasks)
-
   return (
     <>
       <Header />
-      <Form />
-      {tasks.map(theTask => 
-        <Task
-          key={theTask.id}
-          task={theTask}
-        />  
-      )}
+      <div className='body'>
+        {/* <Form /> */}
+        {tasks.map(theTask => 
+          <Task
+            key={theTask.id}
+            task={theTask}
+          />  
+        )}
+      </div>
     </>
   )
 }
