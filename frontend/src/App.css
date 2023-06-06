@@ -3,14 +3,18 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: #BF4E30;
+    background-color: #9DB2BF;
     font-size: large;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
     line-height: 32px;
+    color: #27374D;
 }
 
 .body {
-    margin-top: 100px;
+    margin-top: 20vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

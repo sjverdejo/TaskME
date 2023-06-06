@@ -1,22 +1,25 @@
 .Task-Container {
     position: relative;
-    width: 100%;
-    border: 1px none black;
-    /* border-bottom: 1px solid black; */
+    display: block;
+    width: 80%;
+    /* border: 1px solid black; */
     margin-top: 1vh;
+    text-align: center;
     /* box-shadow: 1px 1px grey; */
-    background-color: #BF4E30;
+    /* background-color: #BF4E30; */
 }
 
 .Task-Container>h2 {
     margin: 0px;
     text-align: center;
-    font-weight: 200;
+    font-weight: 600;
 }
 
 .Task-Container>button {
     position: absolute;
     top: 0;
     right: 0;
-    margin: 7px;
+    margin-right: 7vh;
+    background: none;
+	border: none;
 }

@@ -1,0 +1,30 @@
+.Search-Box {
+    display: flex;
+    justify-content: center;
+}
+
+.Search-Input {
+    width: 70%;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    border: none;
+    box-shadow: 2px 2px grey;
+    font-size: 30px;
+    font-family: inherit;
+}
+
+.Search-Box>button {
+    padding: 1vh; 
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    box-shadow: 2px 2px grey;
+    border: none;
+}
+
+.Search-Box>button:active {
+    background-color: #27374D;
+}
+
+.Search-Box>img {
+
+}
