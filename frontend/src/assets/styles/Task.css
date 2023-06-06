@@ -1,15 +1,17 @@
 .Task-Container {
     position: relative;
-    border: 1px solid black;
-    border-radius: 9px;
-    margin: 2vh;
-    padding: 1vh;
-    box-shadow: 1px 1px grey;
+    width: 100%;
+    border: 1px none black;
+    /* border-bottom: 1px solid black; */
+    margin-top: 1vh;
+    /* box-shadow: 1px 1px grey; */
+    background-color: #BF4E30;
 }
 
 .Task-Container>h2 {
     margin: 0px;
     text-align: center;
+    font-weight: 200;
 }
 
 .Task-Container>button {

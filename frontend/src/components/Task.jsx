@@ -1,6 +1,7 @@
 import '../assets/styles/Task.css'
 
 function Task({task}) {
+    
     return (
         <div className='Task-Container'>
             <h2>{task.name}</h2>

@@ -1,0 +1,8 @@
+.Form-Container {
+    display: block;
+    width: 95%;
+    border: 1px solid black;
+    /* box-shadow: 1px 1px grey; */
+    margin: auto;
+}
+

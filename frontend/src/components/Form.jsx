@@ -1,3 +1,5 @@
+import '../assets/styles/Form.css'
+
 function Form({submitFunc}) {
     function handleSubmit(event) {
         event.preventDefault()
@@ -8,12 +10,14 @@ function Form({submitFunc}) {
     }
 
     return (
-        <div className='form'>
+        <div className='Form-Container'>
             <form onSubmit={handleSubmit}>
+                
                 <label>Task Name:</label>
-                <input name='name' type='text' />
+                <input className='text-input' name='name' type='text' />
+                
                 <label>Task Description:</label>
-                <textarea name='description'/>
+                <textarea className='text-input' name='description'/>
                 <input name='datecreated' type='date' defaultValue={Date.now()} hidden />
                 <label>Task Due Date</label>
                 <input name='datedue'type='date' />
