@@ -1,9 +1,18 @@
 import axios from 'axios'
 const baseUrl = 'http://localhost:3001/tasks'
 
-function getAll() {
+//GET method
+function getAllTasks() {
     const request = axios.get(baseUrl)
     return request.then(response => response.data)
 }
 
-export default {getAll}
+function createTask(newTask) {
+    const request = axios.post(baseUrl, newTask)
+    return request.then(response => response.data)
+}
+
+export default {
+    getAllTasks,
+    createTask,
+}

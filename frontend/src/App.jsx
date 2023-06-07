@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     taskService
-      .getAll()
+      .getAllTasks()
       .then(initialTasks => {
         setTasks(initialTasks)
       })
@@ -20,7 +20,7 @@ function App() {
     <>
       <Header />
       <div className='body'>
-        {/* <Form /> */}
+        <Form tasks={tasks} setTasks={setTasks}/>
         {tasks.map(theTask => 
           <Task
             key={theTask.id}

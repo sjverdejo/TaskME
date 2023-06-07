@@ -1,26 +1,57 @@
+import { useState } from 'react'
 import '../assets/styles/Form.css'
+import taskService from '../services/tasks'
 
-function Form({submitFunc}) {
-    function handleSubmit(event) {
-        event.preventDefault()
+function Form({tasks, setTasks}) {
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [date, setDate] = useState(2000-12-20)
 
-        const form = event.target
-        const formData = new FormData(form)
-        const formJson = Object.fromEntries(formData.entries())
+    function updateName(event) {
+        setName(event.target.value)
+    }
+
+    function updateDesc(event) {
+        setDescription(event.target.value)
+    }
+
+    function updateDate(event) {
+        setDate(event.target.value)
+    }
+
+    function addNewTask(event) {
+
+        // event.preventDefault()
+        const dateCreated = new Date()
+
+        const formattedDate = dateCreated.getFullYear() + '-' + dateCreated.getMonth() + '-' + dateCreated.getDate()
+
+        const task = {
+            name: name,
+            description: description,
+            datecreated: formattedDate,
+            datedue: date
+        }
+
+        console.log(task)
+
+        taskService
+            .createTask(task)
+            .then(returnedTask => {
+                setTasks(tasks.concat(returnedTask))
+                console.log(returnedTask)
+            })
     }
 
     return (
         <div className='Form-Container'>
-            <form onSubmit={handleSubmit}>
-                
+            <form onSubmit={addNewTask}>
                 <label>Task Name:</label>
-                <input className='text-input' name='name' type='text' />
-                
+                <input className='text-input' value={name} type='text' onChange={updateName}/>
                 <label>Task Description:</label>
-                <textarea className='text-input' name='description'/>
-                <input name='datecreated' type='date' defaultValue={Date.now()} hidden />
+                <textarea className='text-input' value={description} onChange={updateDesc}/>
                 <label>Task Due Date</label>
-                <input name='datedue'type='date' />
+                <input value={date} type='date' onChange={updateDate}/>
                 <input type='submit' />
             </form>
         </div>
