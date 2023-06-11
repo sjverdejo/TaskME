@@ -30,6 +30,9 @@ function Task({task, setTasks, tasks}) {
         <div className='Task-Container'>
             <h2>{task.name}</h2>
             <button onClick={deleteTask} className='deleteBtn'><img src={x} width={25}/></button>
+            <p>{task.description}</p>
+            <p>Date Started: {fixedDateCreated[0]}</p>
+            <p>Date Due: {fixedDateDue[0]}</p>
             <Popup trigger=
                 {<button className='updateBtn'> Update </button>}
                 modal nested>
@@ -49,10 +52,6 @@ function Task({task, setTasks, tasks}) {
                     )
                 }
             </Popup>
-            <p>{task.description}</p>
-            <p>Date Started: {fixedDateCreated[0]}</p>
-            <p>Date Due: {fixedDateDue[0]}</p>
-
         </div>
     )
 }

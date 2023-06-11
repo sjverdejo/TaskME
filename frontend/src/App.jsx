@@ -19,8 +19,12 @@ function App() {
   return (
     <>
       <Header />
-      <div className='body'>
+      <div className='Form-Top'>
         <Form tasks={tasks} setTasks={setTasks} addForm={true}/>
+      </div>
+    
+      <div className='bodyContent'>
+        
         {tasks.map(theTask => 
           <Task
             key={theTask.id}

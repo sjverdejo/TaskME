@@ -3,7 +3,7 @@
     display: block;
     width: 50%;
     /* border: 1px solid black; */
-    margin-top: 1vh;
+    margin-top: 5vh;
     text-align: center;
     /* box-shadow: 1px 1px grey; */
     /* background-color: #BF4E30; */
@@ -30,6 +30,8 @@
     font-family: 'Lalo';
     border-radius: 3px;
     width: 10vh;
+    font-weight: 200;
+    padding: 1vh;
 }
 
 .modalBtn {
