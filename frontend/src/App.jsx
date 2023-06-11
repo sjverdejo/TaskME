@@ -20,7 +20,7 @@ function App() {
     <>
       <Header />
       <div className='body'>
-        <Form tasks={tasks} setTasks={setTasks}/>
+        <Form tasks={tasks} setTasks={setTasks} addForm={true}/>
         {tasks.map(theTask => 
           <Task
             key={theTask.id}

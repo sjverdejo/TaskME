@@ -1,8 +1,19 @@
 .Form-Container {
-    display: block;
     width: 95%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* box-shadow: 1px 1px grey; */
     margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.Form-Container>form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 900;
 }
 
