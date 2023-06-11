@@ -25,6 +25,8 @@ function App() {
           <Task
             key={theTask.id}
             task={theTask}
+            setTasks={setTasks}
+            tasks={tasks}
           />  
         )}
       </div>

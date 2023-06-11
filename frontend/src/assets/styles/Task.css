@@ -23,3 +23,7 @@
     background: none;
 	border: none;
 }
+
+.btn:active {
+    background-color: green;
+}

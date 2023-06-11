@@ -12,7 +12,13 @@ function createTask(newTask) {
     return request.then(response => response.data)
 }
 
+function deleteTask(taskId) {
+    const request = axios.delete(baseUrl + '/' + taskId)
+    return request.then(response => response.data)
+}
+
 export default {
     getAllTasks,
     createTask,
+    deleteTask,
 }

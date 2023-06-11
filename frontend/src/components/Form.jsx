@@ -5,7 +5,7 @@ import taskService from '../services/tasks'
 function Form({tasks, setTasks}) {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [date, setDate] = useState(2000-12-20)
+    const [date, setDate] = useState('')
 
     function updateName(event) {
         setName(event.target.value)
@@ -47,11 +47,11 @@ function Form({tasks, setTasks}) {
         <div className='Form-Container'>
             <form onSubmit={addNewTask}>
                 <label>Task Name:</label>
-                <input className='text-input' value={name} type='text' onChange={updateName}/>
+                <input className='text-input' value={name} type='text' onChange={updateName} required />
                 <label>Task Description:</label>
-                <textarea className='text-input' value={description} onChange={updateDesc}/>
+                <textarea className='text-input' value={description} onChange={updateDesc} required />
                 <label>Task Due Date</label>
-                <input value={date} type='date' onChange={updateDate}/>
+                <input value={date} type='date' onChange={updateDate} required/>
                 <input type='submit' />
             </form>
         </div>
