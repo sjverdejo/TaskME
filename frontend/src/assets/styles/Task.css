@@ -1,7 +1,7 @@
 .Task-Container {
     position: relative;
     display: block;
-    width: 80%;
+    width: 50%;
     /* border: 1px solid black; */
     margin-top: 1vh;
     text-align: center;
@@ -12,10 +12,10 @@
 .Task-Container>h2 {
     margin: 0px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 400;
 }
 
-.Task-Container>.btn {
+.deleteBtn {
     position: absolute;
     top: 0;
     right: 0;
@@ -24,7 +24,7 @@
 	border: none;
 }
 
-.btn2 {
+.updateBtn {
     position: absolute;
     top: 0;
     right: 0;
@@ -32,4 +32,8 @@
     margin-right: 14vh;
     background: none;
 	/* border: none; */
+}
+
+.modalBtn {
+    text-align: center;
 }

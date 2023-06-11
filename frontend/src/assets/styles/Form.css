@@ -13,7 +13,29 @@
     flex-direction: column;
 }
 
-label {
-    font-weight: 900;
+.Form-Container>form>label {
+    font-weight: 400;
 }
 
+form>textarea {
+    resize: vertical;  
+}
+
+.text-input {
+    border-radius: 5px;
+    height: 3vh;
+    margin-bottom: 1vh;
+    font-family: inherit;
+    border: none;
+    box-shadow: 2px 2px grey;
+    font-size: 2vh;
+}
+
+.sbmt {
+    border-radius: 5px;
+    font-size: 2vh; 
+    padding: 1vh;
+    font-family: inherit;
+    background-color: #27374D;
+    color: #DDE6ED;
+}

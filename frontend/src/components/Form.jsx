@@ -65,21 +65,47 @@ function Form({tasks, setTasks, addForm, task}) {
         setCreatedDate(dateCreated)
     }
 
-    if (addForm) {
-        return (
-            <div className='Form-Container'>
-                <form onSubmit={addNewTask}>
-                    <label>Task Name:</label>
-                    <input className='text-input' value={name} type='text' onChange={updateName} required />
-                    <label>Task Description:</label>
-                    <textarea className='text-input' value={description} onChange={updateDesc} required />
-                    <label>Task Due Date</label>
-                    <input value={date} type='date' onChange={updateDate} required/>
-                    <input type='submit' />
-                </form>
-            </div>
-        )
-    } else {
+    // if (addForm) {
+    //     return (
+    //         <div className='Form-Container'>
+    //             <form onSubmit={addNewTask}>
+    //                 <label>Task Name:</label>
+    //                 <input className='text-input' value={name} type='text' onChange={updateName} required />
+    //                 <label>Task Description:</label>
+    //                 <textarea className='text-input' value={description} onChange={updateDesc} required />
+    //                 <label>Task Due Date</label>
+    //                 <input className='text-input' value={date} type='date' onChange={updateDate} required/>
+    //                 <input className='sbmt' type='submit' value='Add New Task'/>
+    //             </form>
+    //         </div>
+    //     )
+    // } else {
+    //     const fixedDateDue = task.datedue.split('T')
+    //     const taskName = task.name
+    //     const desc = task.description
+    //     const fixedCreatedDate = task.datecreated.split('T')
+
+    //     useEffect(()=> {
+    //         setEverything(taskName, desc, fixedDateDue[0], fixedCreatedDate[0])
+    //     },[])
+        
+    //     return (
+    //         <div className='Form-Container'>
+    //             <form onSubmit={updateCurrentTask}>
+    //                 <label>Task Name:</label>
+    //                 <input value={name} type='text' onChange={updateName} required />
+    //                 <label>Task Description:</label>
+    //                 <textarea value={description} onChange={updateDesc} required />
+    //                 <input value={createdDate} type='date' readOnly hidden />
+    //                 <label>Task Due Date</label>
+    //                 <input value={date} type='date' onChange={updateDate} required/>
+    //                 <input type='submit' value='Update'/>
+    //             </form>
+    //         </div>
+    //     )
+    // }
+
+    if (!addForm) {
         const fixedDateDue = task.datedue.split('T')
         const taskName = task.name
         const desc = task.description
@@ -88,22 +114,23 @@ function Form({tasks, setTasks, addForm, task}) {
         useEffect(()=> {
             setEverything(taskName, desc, fixedDateDue[0], fixedCreatedDate[0])
         },[])
-        
+    }
+
         return (
             <div className='Form-Container'>
-                <form onSubmit={updateCurrentTask}>
+                <form onSubmit={addForm ? addNewTask : updateCurrentTask}>
                     <label>Task Name:</label>
                     <input className='text-input' value={name} type='text' onChange={updateName} required />
                     <label>Task Description:</label>
                     <textarea className='text-input' value={description} onChange={updateDesc} required />
-                    <input value={createdDate} type='date' readOnly hidden />
                     <label>Task Due Date</label>
-                    <input value={date} type='date' onChange={updateDate} required/>
-                    <input type='submit' value='Update'/>
+                    <input className='text-input' value={date} type='date' onChange={updateDate} required/>
+                    <input value={createdDate} type='date' readOnly hidden />
+                    <input className='sbmt' type='submit' value={addForm ? 'Add New Task' : 'Update Task' }/>
                 </form>
             </div>
         )
     }
-}
+
 
 export default Form

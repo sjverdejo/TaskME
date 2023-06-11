@@ -29,17 +29,17 @@ function Task({task, setTasks, tasks}) {
     return (
         <div className='Task-Container'>
             <h2>{task.name}</h2>
-            <button onClick={deleteTask} className='btn'><img src={x} width={25}/></button>
+            <button onClick={deleteTask} className='deleteBtn'><img src={x} width={25}/></button>
             <Popup trigger=
-                {<button> Update </button>}
+                {<button className='updateBtn'> Update </button>}
                 modal nested>
                 {
                     close => (
-                        <div className='modal'>
-                            <div className='content'>
+                        <div>
+                            <div>
                                 <Form tasks={tasks} setTasks={setTasks} addForm={false} task={task}/>
                             </div>
-                            <div>
+                            <div className='modalBtn'>
                                 <button onClick=
                                     {() => close()}>
                                         Cancel
