@@ -29,29 +29,34 @@ function Task({task, setTasks, tasks}) {
     return (
         <div className='Task-Container'>
             <h2>{task.name}</h2>
-            <button onClick={deleteTask} className='deleteBtn'><img src={x} width={25}/></button>
+            {/* <button onClick={deleteTask} className='deleteBtn'><img src={x} width={25}/></button> */}
             <p>{task.description}</p>
-            <p>Date Started: {fixedDateCreated[0]}</p>
-            <p>Date Due: {fixedDateDue[0]}</p>
-            <Popup trigger=
-                {<button className='updateBtn'> Update </button>}
-                modal nested>
-                {
-                    close => (
-                        <div>
+            <div className='dates'>
+                <div className='date'><h4>Date Started: </h4><p>{fixedDateCreated[0]}</p></div>
+                <div className='date'><h4>Date Due: </h4><p>{fixedDateDue[0]}</p></div>
+            </div>
+            <div className='taskBtns'>
+                <Popup trigger=
+                    {<button className='taskBtn'> Update </button>}
+                    modal nested>
+                    {
+                        close => (
                             <div>
-                                <Form tasks={tasks} setTasks={setTasks} addForm={false} task={task}/>
+                                <div>
+                                    <Form tasks={tasks} setTasks={setTasks} addForm={false} task={task}/>
+                                </div>
+                                <div className='modalBtn'>
+                                    <button onClick=
+                                        {() => close()}>
+                                            Cancel
+                                    </button>
+                                </div>
                             </div>
-                            <div className='modalBtn'>
-                                <button onClick=
-                                    {() => close()}>
-                                        Cancel
-                                </button>
-                            </div>
-                        </div>
-                    )
-                }
-            </Popup>
+                        )
+                    }
+                </Popup>
+                <button className='taskBtn' onClick={deleteTask}>Delete</button>
+            </div>
         </div>
     )
 }
