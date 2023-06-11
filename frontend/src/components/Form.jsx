@@ -39,6 +39,8 @@ function Form({tasks, setTasks, addForm, task}) {
             .then(returnedTask => {
                 setTasks(tasks.concat(returnedTask))
             })
+
+        alert('Added new task.')
     }
 
     function updateCurrentTask() {
@@ -55,7 +57,9 @@ function Form({tasks, setTasks, addForm, task}) {
             .updateTask(id, updatedTask)
             .then(returnedTask => {
                 setTasks(tasks.map(task => task.id !== id ? note : returnedTask))
-            })      
+            })  
+            
+        alert('Updated task.')
     }
 
     function setEverything(name, desc, date, dateCreated) {

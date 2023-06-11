@@ -1,5 +1,4 @@
 import '../assets/styles/Task.css'
-import x from '../assets/images/x.png'
 import taskService from '../services/tasks'
 import Form from './Form'
 import Popup from 'reactjs-popup';
@@ -9,18 +8,14 @@ function Task({task, setTasks, tasks}) {
     const id = task.id
 
     function deleteTask() {
-        const choice = window.confirm(
-            "Are you sure you want to delete task " + id
-        )
-
-        if (choice) {
-            taskService
+        taskService
             .deleteTask(id)
             .then(returnedTask => {
                 console.log(returnedTask)
                 setTasks(tasks.filter(task => task.id !== id))
-            })
-        }
+        })
+
+        alert('Deleted.')
     }
 
     const fixedDateCreated = task.datecreated.split('T')
@@ -46,7 +41,7 @@ function Task({task, setTasks, tasks}) {
                                     <Form tasks={tasks} setTasks={setTasks} addForm={false} task={task}/>
                                 </div>
                                 <div className='modalBtn'>
-                                    <button onClick=
+                                    <button className='taskBtn' onClick=
                                         {() => close()}>
                                             Cancel
                                     </button>
@@ -55,7 +50,28 @@ function Task({task, setTasks, tasks}) {
                         )
                     }
                 </Popup>
-                <button className='taskBtn' onClick={deleteTask}>Delete</button>
+
+                <Popup trigger=
+                    {<button className='taskBtn'>Delete</button>}
+                    modal nested>
+                    {
+                        close => (
+                            <div>
+                                <div className='prompt'>
+                                    Are you sure you want to delete this?
+                                </div>
+                                <div className='modalDelBtn'>
+                                    <button className='taskBtn' onClick={deleteTask}>Delete</button>
+                                    <button className='taskBtn' onClick=
+                                        {() => close()}>
+                                            No
+                                    </button>
+                                </div>
+                            </div>
+                        )
+                    }
+                </Popup>
+                {/* <button className='taskBtn' onClick={deleteTask}>Delete</button> */}
             </div>
         </div>
     )
